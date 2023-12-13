@@ -4,38 +4,49 @@
     ViewData["Title"] = "Пользователи";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="limiter-table">
+    <div class="container-title">
+        <h1>@ViewData["Title"]</h1>
+    </div>
 
-<p>
-    <a asp-action="Create">Создать</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Email
-            </th>
-            <th>
-                Роль
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.UsersRoles)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.User.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Role)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.User.Id">Редактировать</a> |
-                    <a asp-action="Delete" asp-route-id="@item.User.Id">Удалить</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+    <div class="container-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        EMAIL
+                    </th>
+                    <th>
+                        РОЛИ
+                    </th>
+                    <th class="width-200">ОПЕРАЦИИ</th>
+                </tr>
+            </thead>
+            <thead>
+                <tr>
+                    <th colspan="3">
+                        <a class="go-to-add-btn" asp-action="Create">Добавить новую запись</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Users)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email);
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Roles);
+                        </td>
+                        <td>
+                            <a class="go-to-operation-btn" asp-action="Edit" asp-route-id="@item.Id">Редактировать</a>
+                            <a class="go-to-operation-btn" asp-action="Details" asp-route-id="@item.Id">Подробно</a>
+                            <a class="go-to-operation-btn" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+     </div>
+</div>

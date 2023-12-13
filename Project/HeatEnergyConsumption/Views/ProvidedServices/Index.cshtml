@@ -1,0 +1,126 @@
+﻿@using HeatEnergyConsumption.Extensions
+@model HeatEnergyConsumption.ViewModels.ProvidedServicesViewModel
+
+@{
+    ViewData["Title"] = "Оказанные услуги";
+}
+
+<div class="limiter-table">
+    <div class="container-title">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    <div class="container-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@Model.SortViewModel.OrganizationOrder">@Html.DisplayNameFor(model => model.ProvidedServices.FirstOrDefault().Organization)</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@Model.SortViewModel.ServiceTypeOrder">@Html.DisplayNameFor(model => model.ProvidedServices.FirstOrDefault().ServiceType)</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@Model.SortViewModel.QuantityOrder">@Html.DisplayNameFor(model => model.ProvidedServices.FirstOrDefault().Quantity)</a>
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ProvidedServices.FirstOrDefault().DisplayedQuarter)
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@Model.SortViewModel.YearOrder">@Html.DisplayNameFor(model => model.ProvidedServices.FirstOrDefault().DisplayedYear)</a>
+                    </th>
+                    <th class="width-200">ОПЕРАЦИИ</th>
+                </tr>
+            </thead>
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin")))
+            {
+                <thead>
+                    <tr>
+                        <th colspan="6">
+                            <a class="go-to-add-btn" asp-action="Create">Добавить новую запись</a>
+                        </th>
+                    </tr>
+                </thead>
+            }
+            <thead>
+                <tr>
+                    @using (Html.BeginForm("Index", "ProvidedServices", FormMethod.Post))
+                    {
+                        <th>
+                            @Html.TextBox("Organization", Model.FilterViewModel.Organization, new { @class = "search-input", @autocomplete = "off" })
+                        </th>
+                        <th>
+                            @Html.TextBox("ServiceType", Model.FilterViewModel.ServiceType, new { @class = "search-input", @autocomplete = "off" })
+                        </th>
+                        <th>
+                            @Html.TextBox("Quantity", Model.FilterViewModel.Quantity, new { @class = "search-input", @autocomplete = "off" })
+                        </th>
+                        <th>
+                            @Html.TextBox("Quarter", Model.FilterViewModel.Quarter, new { @class = "search-input", @autocomplete = "off" })
+                        </th>
+                        <th>
+                            @Html.TextBox("Year", Model.FilterViewModel.Year, new { @class = "search-input", @autocomplete = "off" })
+                        </th>
+                        <th>
+                            <input class="search-btn" type="submit" value="Поиск" />
+                        </th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ProvidedServices)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Organization.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ServiceType.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Quantity)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DisplayedQuarter)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DisplayedYear)
+                        </td>
+                        <td class="ta-center width-200">
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin")))
+                            {
+                                <a class="go-to-operation-btn" asp-action="Edit" asp-route-id="@item.Id">Редактировать</a>
+                            }
+                            <a class="go-to-operation-btn" asp-action="Details" asp-route-id="@item.Id">Подробно</a>
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin")))
+                            {
+                                <a class="go-to-operation-btn" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@if (Model.PageViewModel.HasPreviousPage)
+{
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+       asp-route-sortOrder="@Model.SortViewModel.CurrentOrder"
+       class="btn btn-outline-dark">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Назад
+    </a>
+}
+@if (Model.PageViewModel.HasNextPage)
+{
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+       asp-route-sortOrder="@Model.SortViewModel.CurrentOrder"
+       class="btn btn-outline-dark">
+        Вперед
+        <i class="glyphicon glyphicon-chevron-right"></i>
+    </a>
+}

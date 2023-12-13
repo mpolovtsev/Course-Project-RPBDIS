@@ -1,40 +1,40 @@
 ﻿@model HeatEnergyConsumption.ViewModels.UserViewModels.CreateUserViewModel
 
 @{
-    ViewData["Title"] = "Создание пользователя";
+    ViewData["Title"] = "Добавление пользователя";
 }
 
-<h1>@ViewData["Title"]</h1>
+<div class="limiter-operation-form">
+    <div class="container-title">
+        <h1>@ViewData["Title"]</h1>
+    </div>
 
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+    <div class="container-operation-form">
+        <form class="operation-form" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+            <label asp-for="Email" class="title-operation-input"></label>
+            <div class="container-operation-input">
+                <input asp-for="Email" class="operation-input" autocomplete="off" />
             </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
+            <span asp-validation-for="Email" class="text-danger"></span>
+            <label asp-for="Password" class="title-operation-input"></label>
+            <div class="container-operation-input">
+                <input asp-for="Password" class="operation-input" autocomplete="off" />
             </div>
-            <div class="form-group">
-                <select asp-for="Role" asp-items='(IEnumerable<SelectListItem>)@ViewData["Roles"]' class="form-select" aria-required="true">
+            <span asp-validation-for="Password" class="text-danger"></span>
+            <label asp-for="Role" class="title-operation-input"></label>
+            <div class="container-operation-input">
+                <select asp-for="Role" class="operation-input" asp-items='(IEnumerable<SelectListItem>?)@ViewData["Roles"]'>
                     <option selected disable>Выберите роль</option>
                 </select>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Создать" class="btn btn-primary" />
+            <span asp-validation-for="Role" class="text-danger"></span>
+            <div class="operation-and-return-container-btn">
+                <input class="add-btn" type="submit" value="Добавить" />
+                <a class="return-btn" asp-action="Index">Вернуться к таблице</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Вернуться к таблице</a>
 </div>
 
 @section Scripts {

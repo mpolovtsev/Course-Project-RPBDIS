@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Data;
+using Microsoft.AspNetCore.Authorization;
+using HeatEnergyConsumption.ViewModels;
 
 namespace HeatEnergyConsumption.Controllers
 {
@@ -18,8 +18,27 @@ namespace HeatEnergyConsumption.Controllers
 
         public IActionResult Index()
         {
-            var roles = roleManager.Roles.ToList();
-            return View(roles);
+            IEnumerable<IdentityRole> roles = roleManager.Roles;
+
+            RolesViewModel model = new RolesViewModel()
+            {
+                Roles = roles
+            };
+
+            return View(model);
+        }
+
+        public async Task<IActionResult> Details(string id)
+        {
+            if (id == null || roleManager.Roles == null)
+                return NotFound();
+
+            var role = await roleManager.FindByIdAsync(id);
+
+            if (role == null)
+                return NotFound();
+
+            return View(role);
         }
 
         public IActionResult Create()
@@ -31,22 +50,27 @@ namespace HeatEnergyConsumption.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(IdentityRole model)
         {
-            if (!roleManager.RoleExistsAsync(model.Name).GetAwaiter().GetResult())
+            if (!await roleManager.RoleExistsAsync(model.Name))
                 await roleManager.CreateAsync(new IdentityRole(model.Name));
 
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(string id)
         {
-            return View();
+            IdentityRole updatedRole = await roleManager.FindByIdAsync(id);
+
+            if (updatedRole == null)
+                return NotFound();
+
+            return View(updatedRole);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(IdentityRole role)
         {
-            IdentityRole updatedRole = await roleManager.Roles.FirstOrDefaultAsync(r => r.Id == role.Id);
+            IdentityRole? updatedRole = await roleManager.Roles.FirstOrDefaultAsync(r => r.Id == role.Id);
 
             if (updatedRole == null)
                 return NotFound();
@@ -57,16 +81,21 @@ namespace HeatEnergyConsumption.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(string id)
         {
-            return View();
+            IdentityRole deletedRole = await roleManager.FindByIdAsync(id);
+
+            if (deletedRole == null)
+                return NotFound();
+
+            return View(deletedRole);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(IdentityRole role)
         {
-            IdentityRole deletedRole = await roleManager.Roles.FirstOrDefaultAsync(r => r.Id == role.Id);
+            IdentityRole? deletedRole = await roleManager.Roles.FirstOrDefaultAsync(r => r.Id == role.Id);
 
             if (deletedRole == null)
                 return NotFound();

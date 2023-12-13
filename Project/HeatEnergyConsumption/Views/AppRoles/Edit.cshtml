@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IdentityRole
+
+@{
+    ViewData["Title"] = "Изменение роли";
+}
+
+<div class="limiter-operation-form">
+    <div class="container-title">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    <div class="container-operation-form">
+        <form class="operation-form" asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <label asp-for="Name" class="title-operation-input">Название</label>
+            <div class="container-operation-input">
+                <input asp-for="Name" class="operation-input" autocomplete="off" />
+            </div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <div class="operation-and-return-container-btn">
+                <input class="update-btn" type="submit" value="Изменить" />
+                <a class="return-btn" asp-action="Index">Вернуться к таблице</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

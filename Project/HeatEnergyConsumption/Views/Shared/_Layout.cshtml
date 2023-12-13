@@ -7,53 +7,101 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/HeatEnergyConsumption.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/form_style.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Потребление тепловой энергии</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="OwnershipForms" asp-action="Index">Формы собственности</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Managers" asp-action="Index">Руководители</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Organizations" asp-action="Index">Организации</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="AppUsers" asp-action="Index">Пользователи</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="AppRoles" asp-action="Index">Роли</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Потребление тепловой энергии - <a asp-area="" asp-controller="Home" asp-action="Privacy">Политика конфиденциальности</a>
+    <div class="hidden-menu">
+        <div class="hidden-menu-title">
+            <h1>Меню</h1>
         </div>
-    </footer>
+        <div class="hidden-menu-list">
+            <ul>
+                <li>
+                    <div class="hidden-menu-a-container">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">Главная</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="hidden-menu-a-container">
+                        <a asp-area="" asp-controller="OwnershipForms" asp-action="Index">Формы собственности</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="hidden-menu-a-container">
+                        <a asp-area="" asp-controller="Managers" asp-action="Index">Руководители</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="hidden-menu-a-container">
+                        <a asp-area="" asp-controller="ChiefPowerEngineers" asp-action="Index">Главные энергетики</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="hidden-menu-a-container">
+                        <a asp-area="" asp-controller="Organizations" asp-action="Index">Организации</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="hidden-menu-a-container">
+                        <a asp-area="" asp-controller="ProductsTypes" asp-action="Index">Виды продукции</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="hidden-menu-a-container">
+                        <a asp-area="" asp-controller="ServicesTypes" asp-action="Index">Виды услуг</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="hidden-menu-a-container">
+                        <a asp-area="" asp-controller="ProducedProducts" asp-action="Index">Произведённая продукция</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="hidden-menu-a-container">
+                        <a asp-area="" asp-controller="ProvidedServices" asp-action="Index">Оказанные услуги</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="hidden-menu-a-container">
+                        <a asp-area="" asp-controller="HeatEnergyConsumptionRates" asp-action="Index">Нормы потребления теплоэнергии</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="hidden-menu-a-container">
+                        <a asp-area="" asp-controller="ComparisonsHeatEnergyAmount" asp-action="Index">Выполнение норм потребления теплоэнергии</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="hidden-menu-a-container">
+                        <a asp-area="" asp-controller="ViolatorsOrganizations" asp-action="Index">Организации нарушители</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="hidden-menu-a-container">
+                        <a asp-area="" asp-controller="ViolatorsProductsTypes" asp-action="Index">Типы продукции нарушители</a>
+                    </div>
+                </li>
+                @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin")))
+                {
+                    <li>
+                        <div class="hidden-menu-a-container">
+                            <a asp-area="" asp-controller="AppUsers" asp-action="Index">Пользователи</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="hidden-menu-a-container">
+                            <a asp-area="" asp-controller="AppRoles" asp-action="Index">Роли</a>
+                        </div>
+                    </li>
+                }
+
+                <partial name="_LoginPartial" />
+            </ul>
+        </div>
+    </div>
+    @RenderBody()
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -11,7 +11,6 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HeatEnergyConsumption.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20231121142002_Initial")]
     partial class Initial
     {

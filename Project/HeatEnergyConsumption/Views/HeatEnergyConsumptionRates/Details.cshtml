@@ -1,0 +1,60 @@
+﻿@model HeatEnergyConsumption.Models.HeatEnergyConsumptionRate
+
+@{
+    ViewData["Title"] = "Подробности о норме потребления теплоэнергии";
+}
+
+<div class="limiter-operation-form">
+    <div class="container-title">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    <div class="container-operation-form">
+        <div class="operation-form">
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    @Html.DisplayNameFor(model => model.Organization):
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.Organization.Name).
+                </dd>
+            </dl>
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    @Html.DisplayNameFor(model => model.ProductType):
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.ProductType.Name).
+                </dd>
+            </dl>
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    @Html.DisplayNameFor(model => model.Quantity):
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.Quantity).
+                </dd>
+            </dl>
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    @Html.DisplayNameFor(model => model.DisplayedQuarter):
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.DisplayedQuarter).
+                </dd>
+            </dl>
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    @Html.DisplayNameFor(model => model.DisplayedYear):
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.DisplayedYear).
+                </dd>
+            </dl>
+
+            <div class="operation-and-return-container-btn">
+                <a class="return-btn" asp-action="Index">Вернуться к таблице</a>
+            </div>
+        </div>
+    </div>
+</div>

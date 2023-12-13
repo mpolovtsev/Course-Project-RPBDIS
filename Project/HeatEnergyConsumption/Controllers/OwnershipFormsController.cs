@@ -3,72 +3,94 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
 using HeatEnergyConsumption.Data;
 using HeatEnergyConsumption.Models;
+using HeatEnergyConsumption.Extensions;
 using HeatEnergyConsumption.ViewModels;
+using HeatEnergyConsumption.ViewModels.FilterViewModels;
+using HeatEnergyConsumption.ViewModels.SortStates;
+using HeatEnergyConsumption.ViewModels.SortViewModels;
 using HeatEnergyConsumption.ViewModels.PageViewModels;
-using HeatEnergyConsumption.Services.CacheService;
 
 namespace HeatEnergyConsumption.Controllers
 {
-    [Authorize]
     public class OwnershipFormsController : Controller
     {
-        readonly HeatEnergyConsumptionContext _context;
-        const int pageSize = 10;
+        readonly HeatEnergyConsumptionContext dbContext;
+        readonly int pageSize;
 
-        public OwnershipFormsController(HeatEnergyConsumptionContext context)
+        public OwnershipFormsController(HeatEnergyConsumptionContext dbContext, IConfiguration config)
         {
-            _context = context;
+            this.dbContext = dbContext;
+            pageSize = int.Parse(config["Parameters:PageSize"]);
         }
 
-        public async Task<IActionResult> Index(string name, SortState sortOrder = SortState.OwnershipFormNameAsc, int page = 1)
+        [Authorize]
+        public IActionResult Index(OwnershipFormsFilterViewModel filterViewModel, 
+            OwnershipFormsSortState sortOrder = OwnershipFormsSortState.NameAsc, int page = 1)
         {
-            // Загрузка данных из кэша
-            IQueryable<OwnershipForm> ownershipForms = _context.OwnershipForms;
+            IEnumerable<OwnershipForm> ownershipForms = dbContext.OwnershipForms;
 
             if (ownershipForms == null)
                 return Problem("Записи не найдены.");
 
             // Фильтрация
-            if (!string.IsNullOrEmpty(name))
-                ownershipForms = Filter(ownershipForms, name);
+            if (HttpContext.Request.Method == "GET")
+            {
+                HttpContext.Request.Cookies.TryGetValue("OwnershipFormName", out string? nameCookie);
 
+                if (!string.IsNullOrEmpty(nameCookie))
+                {
+                    ownershipForms = ownershipForms.Filter(nameCookie);
+                    filterViewModel.Name = nameCookie;
+                }
+            }
+            else if (HttpContext.Request.Method == "POST")
+            {
+                if (!string.IsNullOrEmpty(filterViewModel.Name))
+                {
+                    ownershipForms = ownershipForms.Filter(filterViewModel.Name);
+                    HttpContext.Response.Cookies.Append("OwnershipFormName", filterViewModel.Name);
+                }
+                else
+                    HttpContext.Response.Cookies.Delete("OwnershipFormName");
+            }
+ 
             // Сортировка
-            ownershipForms = Sort(ownershipForms, sortOrder);
+            ownershipForms = ownershipForms.Sort(sortOrder);
+            OwnershipFormsSortViewModel sortViewModel = new OwnershipFormsSortViewModel(sortOrder);
 
-            // Разбиение на страницы
-            int count = await ownershipForms.CountAsync();
-            ownershipForms = ownershipForms.Skip((page - 1) * pageSize).Take(pageSize);
+            // Пагинация
+            int count = ownershipForms.Count();
+            ownershipForms = ownershipForms.Paginate(page, pageSize);
             PageViewModel pageViewModel = new PageViewModel(count, page, pageSize);
 
             // Формирование модели для передачи представлению
             OwnershipFormsViewModel model = new OwnershipFormsViewModel()
             {
                 OwnershipForms = ownershipForms,
-                Name = name,
+                FilterViewModel = filterViewModel,
+                SortViewModel = sortViewModel,
                 PageViewModel = pageViewModel
             };
 
             return View(model);
         }
 
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.OwnershipForms == null)
-            {
+            if (id == null || dbContext.OwnershipForms == null)
                 return NotFound();
-            }
 
-            var ownershipForm = await _context.OwnershipForms
+            var ownershipForm = await dbContext.OwnershipForms
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (ownershipForm == null)
-            {
                 return NotFound();
-            }
 
             return View(ownershipForm);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -76,12 +98,13 @@ namespace HeatEnergyConsumption.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("Id,Name")] OwnershipForm ownershipForm)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(ownershipForm);
-                await _context.SaveChangesAsync();
+                dbContext.Add(ownershipForm);
+                await dbContext.SaveChangesAsync();
 
                 return RedirectToAction(nameof(Index));
             }
@@ -89,49 +112,41 @@ namespace HeatEnergyConsumption.Controllers
             return View(ownershipForm);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.OwnershipForms == null)
-            {
+            if (id == null || dbContext.OwnershipForms == null)
                 return NotFound();
-            }
 
-            var ownershipForm = await _context.OwnershipForms.FindAsync(id);
+            var ownershipForm = await dbContext.OwnershipForms.FindAsync(id);
 
             if (ownershipForm == null)
-            {
                 return NotFound();
-            }
 
             return View(ownershipForm);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] OwnershipForm ownershipForm)
         {
             if (id != ownershipForm.Id)
-            {
                 return NotFound();
-            }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(ownershipForm);
-                    await _context.SaveChangesAsync();
+                    dbContext.Update(ownershipForm);
+                    await dbContext.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     if (!OwnershipFormExists(ownershipForm.Id))
-                    {
                         return NotFound();
-                    }
                     else
-                    {
                         throw;
-                    }
                 }
 
                 return RedirectToAction(nameof(Index));
@@ -140,64 +155,43 @@ namespace HeatEnergyConsumption.Controllers
             return View(ownershipForm);
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.OwnershipForms == null)
-            {
+            if (id == null || dbContext.OwnershipForms == null)
                 return NotFound();
-            }
 
-            var ownershipForm = await _context.OwnershipForms
+            var ownershipForm = await dbContext.OwnershipForms
                 .FirstOrDefaultAsync(m => m.Id == id);
 
             if (ownershipForm == null)
-            {
                 return NotFound();
-            }
 
             return View(ownershipForm);
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.OwnershipForms == null)
-            {
-                return Problem("Entity set 'HeatEnergyConsumptionContext.OwnershipForms'  is null.");
-            }
+            if (dbContext.OwnershipForms == null)
+                return NotFound();
 
-            var ownershipForm = await _context.OwnershipForms.FindAsync(id);
-            
-            if (ownershipForm != null)
-            {
-                _context.OwnershipForms.Remove(ownershipForm);
-            }
-            
-            await _context.SaveChangesAsync();
+            var ownershipForm = await dbContext.OwnershipForms.FindAsync(id);
+
+            if (ownershipForm == null)
+                return NotFound();
+
+            dbContext.OwnershipForms.Remove(ownershipForm);
+            await dbContext.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
 
-        private bool OwnershipFormExists(int id)
+        bool OwnershipFormExists(int id)
         {
-            return (_context.OwnershipForms?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
-
-        IQueryable<OwnershipForm> Filter(IQueryable<OwnershipForm> ownershipForms, string name)
-        {
-            return ownershipForms.Where(ownershipForm => ownershipForm.Name.Contains(name ?? ""));
-        }
-
-        IQueryable<OwnershipForm> Sort(IQueryable<OwnershipForm> ownershipForms, SortState sortOrder = SortState.OwnershipFormNameAsc)
-        {
-            ViewData["NameSort"] = sortOrder == SortState.OwnershipFormNameAsc ? SortState.OwnershipFormNameDesc : SortState.OwnershipFormNameAsc;
-
-            return sortOrder switch
-            {
-                SortState.OwnershipFormNameDesc => ownershipForms.OrderByDescending(ownershipForm => ownershipForm.Name),
-                _ => ownershipForms.OrderBy(ownershipForm => ownershipForm.Name)
-            };
+            return (dbContext.OwnershipForms?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

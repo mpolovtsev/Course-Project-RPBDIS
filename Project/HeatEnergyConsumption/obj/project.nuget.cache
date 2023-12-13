@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qveRDp4Douv5bojWaJ0dXW51zOQ2WHKCSBfeRzTdykG6uZDG8ChyVddAFd2KigvTk+5NNV6hRk80bWLt5ZSy3A==",
+  "dgSpecHash": "UMlEyQw7hkPyjeTLhdWCOn0ZVKFQnSU83qLl7cke1JboOPLPjOdI9k1IjFn1DQCulqE88Yq+OvLP4YAtPV0MUg==",
   "success": true,
-  "projectFilePath": "D:\\Development of database applications for information systems\\lab5\\Project\\HeatEnergyConsumption\\HeatEnergyConsumption.csproj",
+  "projectFilePath": "D:\\CourseProject (DoDAfIS)\\Project\\HeatEnergyConsumption\\HeatEnergyConsumption.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MAKSIM\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\MAKSIM\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

@@ -1,0 +1,36 @@
+﻿@model HeatEnergyConsumption.Models.AppUser
+
+@{
+    ViewData["Title"] = "Подробности о пользователе";
+}
+
+<div class="limiter-operation-form">
+    <div class="container-title">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    <div class="container-operation-form">
+        <div class="operation-form">
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    EMAIL:
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.Email).
+                </dd>
+            </dl>
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    РОЛЬ:
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.Roles).
+                </dd>
+            </dl>
+
+            <div class="operation-and-return-container-btn">
+                <a class="return-btn" asp-action="Index">Вернуться к таблице</a>
+            </div>
+        </div>
+    </div>
+</div>

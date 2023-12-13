@@ -1,0 +1,50 @@
+﻿@model HeatEnergyConsumption.Models.ChiefPowerEngineer
+
+@{
+    ViewData["Title"] = "Добавление главного энергетика";
+}
+
+<div class="limiter-operation-form">
+    <div class="container-title">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    <div class="container-operation-form">
+        <form class="operation-form" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <label asp-for="Name" class="title-operation-input"></label>
+            <div class="container-operation-input">
+                <input asp-for="Name" class="operation-input" autocomplete="off" />
+            </div>
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <label asp-for="Surname" class="title-operation-input"></label>
+            <div class="container-operation-input">
+                <input asp-for="Surname" class="operation-input" autocomplete="off" />
+            </div>
+            <span asp-validation-for="Surname" class="text-danger"></span>
+            <label asp-for="MiddleName" class="title-operation-input"></label>
+            <div class="container-operation-input">
+                <input asp-for="MiddleName" class="operation-input" autocomplete="off" />
+            </div>
+            <span asp-validation-for="MiddleName" class="text-danger"></span>
+            <label asp-for="OrganizationId" class="title-operation-input"></label>
+            <div class="container-operation-input">
+                <select asp-for="OrganizationId" class="operation-input" asp-items="ViewBag.OrganizationId"></select>
+            </div>
+            <span asp-validation-for="OrganizationId" class="text-danger"></span>
+            <label asp-for="PhoneNumber" class="title-operation-input"></label>
+            <div class="container-operation-input">
+                <input asp-for="PhoneNumber" class="operation-input" autocomplete="off" />
+            </div>
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            <div class="operation-and-return-container-btn">
+                <input class="add-btn" type="submit" value="Добавить" />
+                <a class="return-btn" asp-action="Index">Вернуться к таблице</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

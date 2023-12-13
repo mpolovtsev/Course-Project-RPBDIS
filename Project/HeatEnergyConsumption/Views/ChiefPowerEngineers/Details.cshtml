@@ -1,0 +1,60 @@
+﻿@model HeatEnergyConsumption.Models.ChiefPowerEngineer
+
+@{
+    ViewData["Title"] = "Подробности о главном энергетике";
+}
+
+<div class="limiter-operation-form">
+    <div class="container-title">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    <div class="container-operation-form">
+        <div class="operation-form">
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    @Html.DisplayNameFor(model => model.Name):
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.Name).
+                </dd>
+            </dl>
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    @Html.DisplayNameFor(model => model.Surname):
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.Surname).
+                </dd>
+            </dl>
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    @Html.DisplayNameFor(model => model.MiddleName):
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.MiddleName).
+                </dd>
+            </dl>
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    @Html.DisplayNameFor(model => model.Organization):
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.Organization.Name).
+                </dd>
+            </dl>
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    @Html.DisplayNameFor(model => model.PhoneNumber):
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.PhoneNumber).
+                </dd>
+            </dl>
+
+            <div class="operation-and-return-container-btn">
+                <a class="return-btn" asp-action="Index">Вернуться к таблице</a>
+            </div>
+        </div>
+    </div>
+</div>

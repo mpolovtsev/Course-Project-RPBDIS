@@ -1,20 +1,20 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using System.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using HeatEnergyConsumption.ViewModels.UserViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Data;
 using Microsoft.AspNetCore.Authorization;
+using HeatEnergyConsumption.Models;
+using HeatEnergyConsumption.ViewModels.UserViewModels;
 
 namespace HeatEnergyConsumption.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class AppUsersController : Controller
     {
-        UserManager<IdentityUser> userManager;
+        UserManager<AppUser> userManager;
         RoleManager<IdentityRole> roleManager;
 
-        public AppUsersController(UserManager<IdentityUser> userManager,
-            RoleManager<IdentityRole> roleManager)
+        public AppUsersController(UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
@@ -22,21 +22,38 @@ namespace HeatEnergyConsumption.Controllers
 
         public async Task<IActionResult> Index()
         {
-            List<(IdentityUser, string)> usersRoles = new();
+            List<AppUser> users = new List<AppUser>();
             IList<string> roles;
 
-            foreach (IdentityUser user in userManager.Users)
+            foreach (AppUser user in userManager.Users)
             {
                 roles = await userManager.GetRolesAsync(user);
-                usersRoles.Add((user, string.Join<string>(" ", roles)));
+                user.Roles = string.Join<string>(" ", roles);
+                users.Add(user);
             }
 
             UsersViewModel model = new UsersViewModel()
             {
-                UsersRoles = usersRoles
+                Users = users
             };
 
             return View(model);
+        }
+
+        public async Task<IActionResult> Details(string id)
+        {
+            if (id == null || userManager.Users == null)
+                return NotFound();
+
+            AppUser user = await userManager.FindByIdAsync(id);
+            string role = (await userManager.GetRolesAsync(user))[0];
+
+            if (user == null)
+                return NotFound();
+
+            user.Roles = role;
+
+            return View(user);
         }
 
         public IActionResult Create()
@@ -55,8 +72,8 @@ namespace HeatEnergyConsumption.Controllers
         {
             if (ModelState.IsValid)
             {
-                IdentityUser user = new IdentityUser 
-                { 
+                AppUser user = new AppUser
+                {
                     UserName = model.Email,
                     Email = model.Email
                 };
@@ -86,13 +103,18 @@ namespace HeatEnergyConsumption.Controllers
                 Value = role
             });
 
-            IdentityUser user = await userManager.FindByIdAsync(id);
+            AppUser user = await userManager.FindByIdAsync(id);
             string role = (await userManager.GetRolesAsync(user))[0];
 
             if (user == null)
                 return NotFound();
 
-            EditUserViewModel model = new EditUserViewModel { Id = user.Id, Email = user.Email, Role = role };
+            EditUserViewModel model = new EditUserViewModel 
+            { 
+                Id = user.Id, 
+                Email = user.Email, 
+                Role = role 
+            };
 
             return View(model);
         }
@@ -102,7 +124,7 @@ namespace HeatEnergyConsumption.Controllers
         {
             if (ModelState.IsValid)
             {
-                IdentityUser user = await userManager.FindByIdAsync(model.Id);
+                AppUser user = await userManager.FindByIdAsync(model.Id);
 
                 if (user != null)
                 {
@@ -129,15 +151,20 @@ namespace HeatEnergyConsumption.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> Delete(string id) 
+        public async Task<IActionResult> Delete(string id)
         {
-            IdentityUser user = await userManager.FindByIdAsync(id);
+            AppUser user = await userManager.FindByIdAsync(id);
             string role = (await userManager.GetRolesAsync(user))[0];
 
             if (user == null)
                 return NotFound();
 
-            DeleteUserViewModel model = new DeleteUserViewModel { Id = user.Id, Email = user.Email, Role = role };
+            DeleteUserViewModel model = new DeleteUserViewModel 
+            { 
+                Id = user.Id, 
+                Email = user.Email, 
+                Role = role 
+            };
 
             return View(model);
         }
@@ -145,7 +172,7 @@ namespace HeatEnergyConsumption.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(DeleteUserViewModel model)
         {
-            IdentityUser user = await userManager.FindByIdAsync(model.Id);
+            AppUser user = await userManager.FindByIdAsync(model.Id);
 
             if (user != null)
             {

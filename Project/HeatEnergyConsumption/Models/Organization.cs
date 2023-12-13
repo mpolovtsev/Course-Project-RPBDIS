@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HeatEnergyConsumption.Models
 {
@@ -14,22 +13,51 @@ namespace HeatEnergyConsumption.Models
         }
 
         public int Id { get; set; }
-        [Display(Name = "Название")]
+
+        [Required(ErrorMessage = "Это поле обязательно для заполнения.")]
+        [Display(Name = "НАЗВАНИЕ")]
         public string Name { get; set; } = null!;
-        [Display(Name = "Форма собственности")]
-        [ForeignKey("OwnershipForm")]
+
+        [Required(ErrorMessage = "Это поле обязательно для заполнения.")]
+        [Display(Name = "ФОРМА СОБСТВЕННОСТИ")]
         public int OwnershipFormId { get; set; }
-        [Display(Name = "Адрес")]
+
+        [Required(ErrorMessage = "Это поле обязательно для заполнения.")]
+        [Display(Name = "АДРЕС")]
         public string Address { get; set; } = null!;
-        [Display(Name = "Руководитель")]
-        [ForeignKey("Manager")]
+
+        [Required(ErrorMessage = "Это поле обязательно для заполнения.")]
+        [Display(Name = "РУКОВОДИТЕЛЬ")]
         public int? ManagerId { get; set; }
 
-        public virtual Manager? Manager { get; set; }
+        [Display(Name = "ФОРМА СОБСТВЕННОСТИ")]
         public virtual OwnershipForm OwnershipForm { get; set; } = null!;
+
+        [Display(Name = "РУКОВОДИТЕЛЬ")]
+        public virtual Manager? Manager { get; set; }
+
         public virtual ICollection<ChiefPowerEngineer> ChiefPowerEngineers { get; set; }
+
         public virtual ICollection<HeatEnergyConsumptionRate> HeatEnergyConsumptionRates { get; set; }
+
         public virtual ICollection<ProducedProduct> ProducedProducts { get; set; }
+
         public virtual ICollection<ProvidedService> ProvidedServices { get; set; }
+
+        public Data.HeatEnergyConsumptionContext HeatEnergyConsumptionContext
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
+        public ViewModels.OrganizationsViewModel OrganizationsViewModel
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

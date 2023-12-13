@@ -1,5 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
-using HeatEnergyConsumption.Models;
+﻿using HeatEnergyConsumption.Models;
+using HeatEnergyConsumption.ViewModels.FilterViewModels;
+using HeatEnergyConsumption.ViewModels.SortViewModels;
 using HeatEnergyConsumption.ViewModels.PageViewModels;
 
 namespace HeatEnergyConsumption.ViewModels
@@ -8,11 +9,10 @@ namespace HeatEnergyConsumption.ViewModels
     {
         public IEnumerable<OwnershipForm> OwnershipForms { get; set; }
 
-        // Свойство для фильтрации
-        [Display(Name = "Название")]
-        public string Name { get; set; }
+        public OwnershipFormsFilterViewModel FilterViewModel { get; set; }
 
-        // Свойство для навигации по страницам
+        public OwnershipFormsSortViewModel SortViewModel { get; set; }
+
         public PageViewModel PageViewModel { get; set; }
     }
 }

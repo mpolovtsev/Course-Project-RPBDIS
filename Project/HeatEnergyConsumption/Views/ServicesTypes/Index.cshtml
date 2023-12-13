@@ -1,0 +1,107 @@
+﻿@model HeatEnergyConsumption.ViewModels.ServicesTypesViewModel
+
+@{
+    ViewData["Title"] = "Виды услуг";
+}
+
+<div class="limiter-table">
+    <div class="container-title">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    <div class="container-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@Model.SortViewModel.CodeOrder">@Html.DisplayNameFor(model => model.ServicesTypes.FirstOrDefault().Code)</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@Model.SortViewModel.NameOrder">@Html.DisplayNameFor(model => model.ServicesTypes.FirstOrDefault().Name)</a>
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ServicesTypes.FirstOrDefault().Unit)
+                    </th>
+                    <th class="width-200">ОПЕРАЦИИ</th>
+                </tr>
+            </thead>
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin")))
+            {
+                <thead>
+                    <tr>
+                        <th colspan="4">
+                            <a class="go-to-add-btn" asp-action="Create">Добавить новую запись</a>
+                        </th>
+                    </tr>
+                </thead>
+            }
+            <thead>
+                <tr>
+                    @using (Html.BeginForm("Index", "ServicesTypes", FormMethod.Post))
+                    {
+                        <th>
+                            @Html.TextBox("Code", Model.FilterViewModel.Code, new { @class = "search-input", @autocomplete = "off" })
+                        </th>
+                        <th>
+                            @Html.TextBox("OwnershipForm", Model.FilterViewModel.Name, new { @class = "search-input", @autocomplete = "off" })
+                        </th>
+                        <th>
+                            @Html.TextBox("Unit", Model.FilterViewModel.Unit, new { @class = "search-input", @autocomplete = "off" })
+                        </th>
+                        <th>
+                            <input class="search-btn" type="submit" value="Поиск" />
+                        </th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.ServicesTypes)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Unit)
+                        </td>
+                        <td class="ta-center width-200">
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin")))
+                            {
+                                <a class="go-to-operation-btn" asp-action="Edit" asp-route-id="@item.Id">Редактировать</a>
+                            }
+                            <a class="go-to-operation-btn" asp-action="Details" asp-route-id="@item.Id">Подробно</a>
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin")))
+                            {
+                                <a class="go-to-operation-btn" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@if (Model.PageViewModel.HasPreviousPage)
+{
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+       asp-route-sortOrder="@Model.SortViewModel.CurrentOrder"
+       class="btn btn-outline-dark">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Назад
+    </a>
+}
+@if (Model.PageViewModel.HasNextPage)
+{
+    <a asp-action="Index"
+       asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+       asp-route-sortOrder="@Model.SortViewModel.CurrentOrder"
+       class="btn btn-outline-dark">
+        Вперед
+        <i class="glyphicon glyphicon-chevron-right"></i>
+    </a>
+}

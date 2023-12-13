@@ -4,90 +4,93 @@
     ViewData["Title"] = "Руководители";
 }
 
-<style>
-    @@font-face {
-        font-family: 'FontAwesome';
-        src: url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2') format('woff2'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff') format('woff'), url('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/fonts/fontawesome-webfont.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal
-    }
+<div class="limiter-table">
+    <div class="container-title">
+        <h1>@ViewData["Title"]</h1>
+    </div>
 
-    .glyphicon {
-        display: inline-block;
-        font: normal normal normal 14px/1 FontAwesome;
-        font-size: inherit;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale
-    }
-
-    .glyphicon-chevron-right:before {
-        content: "\f054";
-    }
-
-    .glyphicon-chevron-left:before {
-        content: "\f053";
-    }
-</style>
-
-<h1>@ViewData["Title"]</h1>
-
-<p>
-    <a asp-action="Create">Создать</a>
-</p>
-
-@using (Html.BeginForm("Index", "Managers", FormMethod.Get))
-{
-    <fieldset>
-        Имя: @Html.TextBox("Name", Model.Name)
-        Фамилия: @Html.TextBox("Surname", Model.Surname)
-        Отчество: @Html.TextBox("MiddleName", Model.MiddleName)
-        <input type="submit" value="Поиск" />
-    </fieldset>
-}
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSort"]">@Html.DisplayNameFor(model => model.Name)</a>
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["SurnameSort"]">@Html.DisplayNameFor(model => model.Surname)</a>
-            </th>
-            <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["MiddleNameSort"]">@Html.DisplayNameFor(model => model.MiddleName)</a>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Managers) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Surname)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MiddleName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Редактировать</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Подробно</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="container-table">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@Model.SortViewModel.NameOrder">@Html.DisplayNameFor(model => model.Managers.FirstOrDefault().Name)</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@Model.SortViewModel.SurnameOrder">@Html.DisplayNameFor(model => model.Managers.FirstOrDefault().Surname)</a>
+                    </th>
+                    <th>
+                        <a asp-action="Index" asp-route-sortOrder="@Model.SortViewModel.MiddleNameOrder">@Html.DisplayNameFor(model => model.Managers.FirstOrDefault().MiddleName)</a>
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Managers.FirstOrDefault().PhoneNumber)
+                    </th>
+                    <th class="width-200">ОПЕРАЦИИ</th>
+                </tr>
+            </thead>
+            @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin")))
+            {
+                <thead>
+                    <tr>
+                        <th colspan="5">
+                            <a class="go-to-add-btn" asp-action="Create">Добавить новую запись</a>
+                        </th>
+                    </tr>
+                </thead>
+            }
+            <thead>
+                <tr>
+                    @using (Html.BeginForm("Index", "Managers", FormMethod.Post))
+                    {
+                        <th>
+                            @Html.TextBox("Name", Model.FilterViewModel.Name, new { @class = "search-input", @autocomplete = "off" })
+                        </th>
+                        <th>
+                            @Html.TextBox("Surname", Model.FilterViewModel.Surname, new { @class = "search-input", @autocomplete = "off" })
+                        </th>
+                        <th>
+                            @Html.TextBox("MiddleName", Model.FilterViewModel.MiddleName, new { @class = "search-input", @autocomplete = "off" })
+                        </th>
+                        <th></th>
+                        <th>
+                            <input class="search-btn" type="submit" value="Поиск" />
+                        </th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Managers)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Surname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MiddleName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td class="ta-center width-200">
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin")))
+                            {
+                                <a class="go-to-operation-btn" asp-action="Edit" asp-route-id="@item.Id">Редактировать</a>
+                            }
+                            <a class="go-to-operation-btn" asp-action="Details" asp-route-id="@item.Id">Подробно</a>
+                            @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin")))
+                            {
+                                <a class="go-to-operation-btn" asp-action="Delete" asp-route-id="@item.Id">Удалить</a>                                
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
 @if (Model.PageViewModel.HasPreviousPage)
 {

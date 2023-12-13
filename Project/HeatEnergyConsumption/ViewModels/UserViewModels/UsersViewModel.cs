@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using HeatEnergyConsumption.Models;
 
 namespace HeatEnergyConsumption.ViewModels.UserViewModels
 {
     public class UsersViewModel
     {
-        public IEnumerable<(IdentityUser User, string Role)> UsersRoles {  get; set; }
+        public IEnumerable<AppUser> Users {  get; set; }
     }
 }

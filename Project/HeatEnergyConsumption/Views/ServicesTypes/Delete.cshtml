@@ -1,0 +1,48 @@
+﻿@model HeatEnergyConsumption.Models.ServicesType
+
+@{
+    ViewData["Title"] = "Удаление вида услуги";
+}
+
+<div class="limiter-operation-form">
+    <div class="container-title">
+        <h1>@ViewData["Title"]</h1>
+    </div>
+
+    <div class="container-operation-form">
+        <div class="operation-form">
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    @Html.DisplayNameFor(model => model.Code):
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.Code).
+                </dd>
+            </dl>
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    @Html.DisplayNameFor(model => model.Name):
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.Name).
+                </dd>
+            </dl>
+            <dl class="details-wrapper">
+                <dt class="details-block-title">
+                    @Html.DisplayNameFor(model => model.Unit):
+                </dt>
+                <dd class="details-block-value">
+                    @Html.DisplayFor(model => model.Unit).
+                </dd>
+            </dl>
+
+            <div class="operation-and-return-container-btn">
+                <form class="delete-form" asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <input class="delete-btn" type="submit" value="Удалить" />
+                </form>
+                <a class="return-btn" asp-action="Index">Вернуться к таблице</a>
+            </div>
+        </div>
+    </div>
+</div>

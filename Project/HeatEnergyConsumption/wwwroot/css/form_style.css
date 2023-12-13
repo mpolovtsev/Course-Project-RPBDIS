@@ -1,0 +1,153 @@
+﻿@font-face {
+    font-family: Raleway;
+    src: url('../fonts/Raleway.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input, select {
+    outline: none;
+    border: none;
+}
+
+button {
+    outline: none !important;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.limiter {
+    width: 100%;
+    background-color: #ebebeb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-register-form, .container-login-form {
+    width: 560px;
+    background: #ffffff;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.register-form, .login-form {
+    width: 100%;
+}
+
+.title-register-form, .title-login-form {
+    width: 100%;
+    color: #555555;
+    font-family: Raleway;
+    font-size: 30px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.title-register-input, .title-login-input {
+    font-family: Raleway;
+    font-size: 13px;
+    color: #555555;
+    text-transform: uppercase;
+    display: block;
+}
+
+.container-register-input, .container-login-input {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e6e6e6;
+    border-radius: 2px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.register-input, .login-input {
+    font-family: Raleway;
+    color: #555555;
+    line-height: 1.2;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 0 15px;
+}
+
+.register-checkbox, .login-checkbox {
+    display: none;
+}
+
+.label-register-checkbox, .label-login-checkbox {
+    font-family: Raleway;
+    font-size: 14px;
+    color: #999999;
+    line-height: 1.2;
+    display: block;
+    position: relative;
+    padding-left: 26px;
+    cursor: pointer;
+}
+
+.label-register-checkbox::before, .label-login-checkbox::before {
+    content: "✓";
+    font-family: FontAwesome;
+    font-size: 20px;
+    color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+    left: 0;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%)
+}
+
+.register-checkbox:checked + .label-register-checkbox::before,
+.login-checkbox:checked + .label-login-checkbox::before {
+    color: #57b846
+}
+
+.container-register-btn, .container-login-btn {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.register-btn, .login-btn {
+    font-family: Raleway;
+    font-size: 16px;
+    color: #ffffff;
+    line-height: 1.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
+    min-width: 350px;
+    height: 50px;
+    background-color: #333333;
+    border-radius: 27px;
+    transition: all .4s
+}
+
+.register-btn:hover, .login-btn:hover {
+    background-color: #57b846;
+}

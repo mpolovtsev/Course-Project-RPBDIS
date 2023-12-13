@@ -9,153 +9,309 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HeatEnergyConsumption
 build_property.RootNamespace = HeatEnergyConsumption
-build_property.ProjectDir = D:\Development of database applications for information systems\lab5\Project\HeatEnergyConsumption\
+build_property.ProjectDir = D:\CourseProject (DoDAfIS)\Project\HeatEnergyConsumption\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Development of database applications for information systems\lab5\Project\HeatEnergyConsumption
+build_property.MSBuildProjectDirectory = D:\CourseProject (DoDAfIS)\Project\HeatEnergyConsumption
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Areas/Identity/Pages/Account/Login.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Areas/Identity/Pages/Account/ConfirmEmail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxDb25maXJtRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Areas/Identity/Pages/Account/Logout.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Areas/Identity/Pages/Account/Logout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Areas/Identity/Pages/Account/Register.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3RlckNvbmZpcm1hdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Areas/Identity/Pages/_ViewImports.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Areas/Identity/Pages/_ViewStart.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/AppRoles/Create.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/AppRoles/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/AppRoles/Index.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/AppRoles/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/AppRoles/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/AppRoles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/AppRoles/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwUm9sZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/AppUsers/Create.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/AppUsers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/AppUsers/Delete.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/AppUsers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwVXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/AppUsers/Edit.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/AppUsers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwVXNlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/AppUsers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwVXNlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/AppUsers/Index.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/AppUsers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Home/Index.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ChiefPowerEngineers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hpZWZQb3dlckVuZ2luZWVyc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ChiefPowerEngineers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hpZWZQb3dlckVuZ2luZWVyc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ChiefPowerEngineers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hpZWZQb3dlckVuZ2luZWVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ChiefPowerEngineers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hpZWZQb3dlckVuZ2luZWVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ChiefPowerEngineers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hpZWZQb3dlckVuZ2luZWVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ComparisonsHeatEnergyAmount/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tcGFyaXNvbnNIZWF0RW5lcmd5QW1vdW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/HeatEnergyConsumptionRates/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVhdEVuZXJneUNvbnN1bXB0aW9uUmF0ZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/HeatEnergyConsumptionRates/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVhdEVuZXJneUNvbnN1bXB0aW9uUmF0ZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/HeatEnergyConsumptionRates/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVhdEVuZXJneUNvbnN1bXB0aW9uUmF0ZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/HeatEnergyConsumptionRates/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVhdEVuZXJneUNvbnN1bXB0aW9uUmF0ZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/HeatEnergyConsumptionRates/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVhdEVuZXJneUNvbnN1bXB0aW9uUmF0ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Home/Privacy.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Managers/Create.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Managers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Managers/Delete.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Managers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Managers/Details.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Managers/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Managers/Edit.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Managers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Managers/Index.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Managers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFuYWdlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Organizations/Create.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Organizations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Organizations/Delete.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Organizations/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Organizations/Details.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Organizations/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Organizations/Edit.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Organizations/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Organizations/Index.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Organizations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JnYW5pemF0aW9uc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/OwnershipForms/Create.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/OwnershipForms/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3duZXJzaGlwRm9ybXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/OwnershipForms/Delete.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/OwnershipForms/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3duZXJzaGlwRm9ybXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/OwnershipForms/Details.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/OwnershipForms/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3duZXJzaGlwRm9ybXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/OwnershipForms/Edit.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/OwnershipForms/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3duZXJzaGlwRm9ybXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/OwnershipForms/Index.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/OwnershipForms/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3duZXJzaGlwRm9ybXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Shared/Error.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProducedProducts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZWRQcm9kdWN0c1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProducedProducts/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZWRQcm9kdWN0c1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProducedProducts/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZWRQcm9kdWN0c1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProducedProducts/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZWRQcm9kdWN0c1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProducedProducts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjZWRQcm9kdWN0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProductsTypes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNUeXBlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProductsTypes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNUeXBlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProductsTypes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNUeXBlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProductsTypes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNUeXBlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProductsTypes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNUeXBlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProvidedServices/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZWRTZXJ2aWNlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProvidedServices/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZWRTZXJ2aWNlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProvidedServices/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZWRTZXJ2aWNlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProvidedServices/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZWRTZXJ2aWNlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ProvidedServices/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvdmlkZWRTZXJ2aWNlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ServicesTypes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNUeXBlc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ServicesTypes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNUeXBlc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ServicesTypes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNUeXBlc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ServicesTypes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNUeXBlc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ServicesTypes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZXNUeXBlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Shared/_LoginPartial.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/_ViewImports.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ViolatorsOrganizations/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlvbGF0b3JzT3JnYW5pemF0aW9uc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/ViolatorsProductsTypes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlvbGF0b3JzUHJvZHVjdHNUeXBlc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/_ViewStart.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Development of database applications for information systems/lab5/Project/HeatEnergyConsumption/Views/Shared/_Layout.cshtml]
+[D:/CourseProject (DoDAfIS)/Project/HeatEnergyConsumption/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-3ehu45mtc1

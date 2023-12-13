@@ -11503,11 +11503,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Development of database applications for information systems\\lab5\\Project\\HeatEnergyConsumption\\HeatEnergyConsumption.csproj",
+      "projectUniqueName": "D:\\CourseProject (DoDAfIS)\\Project\\HeatEnergyConsumption\\HeatEnergyConsumption.csproj",
       "projectName": "HeatEnergyConsumption",
-      "projectPath": "D:\\Development of database applications for information systems\\lab5\\Project\\HeatEnergyConsumption\\HeatEnergyConsumption.csproj",
+      "projectPath": "D:\\CourseProject (DoDAfIS)\\Project\\HeatEnergyConsumption\\HeatEnergyConsumption.csproj",
       "packagesPath": "C:\\Users\\MAKSIM\\.nuget\\packages\\",
-      "outputPath": "D:\\Development of database applications for information systems\\lab5\\Project\\HeatEnergyConsumption\\obj\\",
+      "outputPath": "D:\\CourseProject (DoDAfIS)\\Project\\HeatEnergyConsumption\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using HeatEnergyConsumption.Data;
-using HeatEnergyConsumption.Services.CacheService;
+using HeatEnergyConsumption.Models;
+using HeatEnergyConsumption.Middleware;
 
 public class Program
 {
@@ -10,34 +11,29 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
         IServiceCollection services = builder.Services;
 
-        // Внедрение зависимости для доступа к БД с использованием EF
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ EF
         string connectionDb = builder.Configuration.GetConnectionString("DefaultConnection");
         services.AddDbContext<HeatEnergyConsumptionContext>(options =>
             options.UseSqlServer(connectionDb));
 
-        // Добавление поддержки Identity
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Identity
         string connectionUsers = builder.Configuration.GetConnectionString("IdentityConnection");
         services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(connectionUsers));
-        services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddRoles<IdentityRole>()
+        services.AddIdentity<AppUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
 
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ MVC
         services.AddControllersWithViews();
 
-        // Добавление поддержки сессий
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         services.AddDistributedMemoryCache();
         services.AddSession();
 
-        // Добавление поддержки кэширования
-        services.AddMemoryCache();
-        services.AddTransient<OwnershipFormsCacheService>();
-        
         var app = builder.Build();
 
-        // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
             app.UseMigrationsEndPoint();
@@ -45,9 +41,11 @@ public class Program
         else
         {
             app.UseExceptionHandler("/Home/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
             app.UseHsts();
         }
+        app.UseSession();
+        // Р”РѕР±Р°РІР»РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р° middleware РґР»СЏ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё Р‘Р”
+        //app.UseDbInitializer();
 
         app.UseHttpsRedirection();
         app.UseStaticFiles();

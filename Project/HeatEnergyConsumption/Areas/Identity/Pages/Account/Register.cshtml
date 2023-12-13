@@ -4,36 +4,40 @@
     ViewData["Title"] = "Регистрация";
 }
 
-<h1>@ViewData["Title"]</h1>
-
-<div class="row">
-    <div class="col-md-4">
-        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Создать новую учетную запись</h2>
-            <hr />
+<div class="limiter">
+    <div class="container-register-form">
+        <form class="register-form" id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <span class="title-register-form">Регистрация</span>
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-floating mb-2">
-                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-                <label asp-for="Input.Email"></label>
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            <label asp-for="Input.Email" class="title-register-input">Email</label>
+            <div class="container-register-input">
+                <input asp-for="Input.Email" class="register-input" type="email" aria-required="true">
             </div>
-            <div class="form-floating mb-2">
-                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="Input.Password"></label>
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+            <label asp-for="Input.Name" class="title-register-input">Имя</label>
+            <div class="container-register-input">
+                <input asp-for="Input.Name" class="register-input" type="text" aria-required="true">
             </div>
-            <div class="form-floating mb-2">
-                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
-                <label asp-for="Input.ConfirmPassword"></label>
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            <span asp-validation-for="Input.Name" class="text-danger"></span>
+            <label asp-for="Input.Surname" class="title-register-input">Фамилия</label>
+            <div class="container-register-input">
+                <input asp-for="Input.Surname" class="register-input" type="text" aria-required="true">
             </div>
-            <div class="form-floating mb-2">
-                <select asp-for="Input.Role" asp-items="@Model.Input.Roles" class="form-select" aria-required="true">
-                    <option selected disabled>Выберите роль</option>
-                </select>
-                <span asp-validation-for="Input.Role" class="text-danger"></span>
+            <span asp-validation-for="Input.Surname" class="text-danger"></span>
+            <label asp-for="Input.Password" class="title-register-input">Пароль</label>
+            <div class="container-register-input">
+                <input asp-for="Input.Password" class="register-input" type="password" aria-required="true">
             </div>
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Зарегистрироваться</button>
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+            <label asp-for="Input.ConfirmPassword" class="title-register-input">Повторите пароль</label>
+            <div class="container-register-input">
+                <input asp-for="Input.ConfirmPassword" class="register-input" type="password" aria-required="true">
+            </div>
+            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+
+            <div class="container-register-btn">
+                <button id="registerSubmit" class="register-btn" type="submit">Зарегистрироваться</button>
+            </div>
         </form>
     </div>
 </div>

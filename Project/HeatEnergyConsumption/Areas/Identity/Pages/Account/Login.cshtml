@@ -5,37 +5,30 @@
     ViewData["Title"] = "Вход";
 }
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h2>Используйте локальную учетную запись для входа.</h2>
-                <hr />
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-floating mb-2">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
-                    <label asp-for="Input.Email" class="form-label"></label>
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-floating mb-2">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
-                    <label asp-for="Input.Password" class="form-label"></label>
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div>
-                    <div class="checkbox">
-                        <label asp-for="Input.RememberMe" class="form-label">
-                            <input class="form-check-input" asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
-                        </label>
-                    </div>
-                </div>
-                <div>
-                    <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Войти</button>
-                </div>
-            </form>
-        </section>
+<div class="limiter">
+    <div class="container-login-form">
+        <form class="login-form" id="account" method="post">
+            <span class="title-login-form">Авторизация</span>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <label asp-for="Input.Email" class="title-login-input">@Html.DisplayNameFor(model => model.Input.Email)</label>
+            <div class="container-login-input">
+                <input asp-for="Input.Email" class="login-input" type="email" aria-required="true">
+            </div>
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+            <label asp-for="Input.Password" class="title-login-input">@Html.DisplayNameFor(model => model.Input.Password)</label>
+            <div class="container-login-input">
+                <input asp-for="Input.Password" class="login-input" type="password" aria-required="true">
+            </div>
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+            <div>
+                <input asp-for="Input.RememberMe" class="login-checkbox" id="remember-me" type="checkbox">
+                <label asp-for="Input.RememberMe" class="label-login-checkbox" for="remember-me">@Html.DisplayNameFor(model => model.Input.RememberMe)</label>
+            </div>
+
+            <div class="container-login-btn">
+                <button id="login-submit" class="login-btn" type="submit">Войти</button>
+            </div>
+        </form>
     </div>
 </div>
 
